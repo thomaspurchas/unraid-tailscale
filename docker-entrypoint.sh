@@ -17,8 +17,11 @@ tailscaled --state=/state/tailscaled.state &
 # Let it get connected to the control plane
 sleep 10
 
+# Output some debug stuff
+echo tailscale up ${UP_FLAGS:-}
+
 # Start the interface
-tailscale up --advertise-routes=192.168.1.0/24
+tailscale up ${UP_FLAGS:-}
 
 # Do nothing until the end of time
 sleep infinity
