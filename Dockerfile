@@ -18,7 +18,7 @@ COPY . .
 RUN go install tailscale.com/cmd/tailscale
 RUN go install tailscale.com/cmd/tailscaled
 
-FROM alpine:3.11
+FROM alpine:3.22.1
 RUN apk add --no-cache ca-certificates iptables iproute2
 COPY --from=build-env /go/bin/* /usr/local/bin/
 COPY docker-entrypoint.sh /usr/local/bin
